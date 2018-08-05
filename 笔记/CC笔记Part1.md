@@ -21,7 +21,7 @@ The TOE may be an IT product, a part of an IT product, a set of IT products, a u
 customer;
 > - an installed and operational version.
 #### 2.2. ST (p65)
-> 内容图见本文件夹中附件图：ST-contents.png
+内容图见本文件夹中附件图：ST-contents.png
 ![](https://i.imgur.com/dihAXNU.png)
 > - Before and during the evaluation, the ST specifies “what is to be evaluated”.  
 > - After the evaluation, the ST specifies “what was evaluated”.   
@@ -58,40 +58,77 @@ e.g. Assumptions on physical / personnel人事部门 / connectivity连通性 asp
 
 ##### 2.2.4 Security objectives (ASE_OBJ)安全目标  
 The security objectives are a concise and abstract statement of the intended
-solution to the problem defined by the security problem definition.对之前定义的问题的解决方案
+solution to the problem defined by the security problem definition.对之前定义的问题的解决方案  
 
-#### 3. PP (part1 Annex-B)
-> 可将ST与PP的结构图进行对比，观察两者的相同和不同之处
+- provide a high-level, natural language solution of the problem;
+- divide this solution into two part wise solutions, that reflect that different entities each have to address a part of the problem;
+- demonstrate that these part wise solutions form a complete solution to the problem.
+
+##### 2.2.5 Extended Components Definition (ASE_ECD)  定义扩展组件
+非基于CC Part 2 or CC Part 3组件之外的其他安全需求  
+In this case, new components (extended components) must be defined, and this definition should be done in the Extended Components Definition. 对这些额外定义的组件有标准的定义要求
+##### 2.2.6 Security requirements (ASE_REQ)安全需求
+- the security functional requirements (**SFRs**) 安全功能性需求:   
+a translation of the security objectives for the TOE into a standardised language;
+- the security assurance requirements (**SARs**) 安全确保性需求:   
+a description of how assurance is to be gained that the TOE meets the SFRs.
+##### 2.2.7 TOE summary specification (ASE_TSS) TOE摘要说明书  
+Provide potential consumers of the TOE with a description of how the TOE satisfies all the SFRs.针对TOE如何满足SFRs的说明
+
+#### 2.3. PP (part1 Annex-B)
+![](https://i.imgur.com/PQDax3k.png)
+> 可将ST与PP的结构图进行对比，观察两者的相同和不同之处  
+
 - A PP describes the general requirements for a TOE type.  
 - A PP is typically a statement of need where a user community, a regulatory entity, or a group of developers define a common set of security needs.
 - PP的结构: 见图pp-contents.png
 > 区别(9.6): Base-PP(s) B.14.3.2, PP-Module(s) B.14, PP-Configuration(s) B.15, Standard PP
-#### 4. ST/TOE 与 PP的关系，三者之间的联系和区别
+##### 2.3.1 PP introduction (APE_INT) PP简介:
+The PP introduction describes the TOE in a narrative way on two levels of abstraction:  
 
-### 3.CC涉及的其他方面
+- the **PP reference**, which provides identification material for the PP;  
+- the **TOE overview**, which briefly describes the TOE.
+##### 2.3.2 Conformance claims (APE_CCL)  
+This section of a PP describes how the PP conforms with other PPs and with packages. It is identical to the conformance claims section for an ST 
+##### 2.3.3 Security problem definition (APE_SPD)
+This section is identical to the security problem definition section of an ST 
+##### 2.3.4 Security objectives (APE_OBJ)
+This section is identical to the security objectives section of an ST 
+##### 2.3.5 Extended components definition (APE_ECD)
+This section is identical to the extended components section of an ST
+##### 2.3.6 Security requirements (APE_REQ)
+This section is identical to the security requirements section of an ST 
+##### 2.3.7 TOE summary specification
+A PP has no TOE summary specification.
+
+### 3. ST/TOE 与 PP的关系，三者之间的联系和区别
+
+### 4.CC涉及的其他方面
 > 通过研究ST与PP的关系，得出信息服务的分类方案。
 1. CC受众：
-- consumers: decide whether a TOE fulfils their security needs;
-- developers: preparing for and assisting in the evaluation of their TOEs and in identifying security requirements to be
+
+- **consumers**: decide whether a TOE fulfils their security needs;
+- **developers**: preparing for and assisting in the evaluation of their TOEs and in identifying security requirements to be
 satisfied by those TOEs; 
-- evaluators: forming judgements about the conformance of TOEs to their security requirements. 
+- **evaluators**: forming judgements about the conformance of TOEs to their security requirements. 
+
 2. 各概念之间的关系
 - A PP is intended to be used as a “template” for an ST. That is: the PP describes a set of user needs, while an ST that conforms to that PP describes a TOE that satisfies those needs.(通过对比两者结构图看出)
 - Whereas an ST always describes a specific TOE (e.g. the MinuteGap v18.5 Firewall), a PP is intended to describe a TOE type (e.g. firewalls). 
 - The TOE has been evaluated to meet the ST.
 
-### 3. CC evaluation评估
+### 5. CC evaluation评估
 #### 1. ST / TOE evaluation
 1. 两步骤 (p45)：
-- ST evaluation: where the sufficiency of the TOE and the operational environment are determined;
-- TOE evaluatino: where the correctness of the TOE is determined.
+- ST evaluation: where the sufficiency of the TOE and the operational environment are determined;确定具体的TOE和操作环境
+- TOE evaluatino: where the correctness of the TOE is determined.确定TOE的正确性
 2. ST evaluation:  
 Security Target evaluation criteria(CC Part 3)
 3. TOE evaluatinon (p45):  
 input: TOE & ST, developement environment, SARs(form ST)  
 result: SARs是否都已满足，若满足，通过ST中所陈述的,TOE针对SFRs的满足程度来确定其具体的担保等级(level of assurance).
 #### 2. PP evaluation (后面会讲到)
-### 4. Tailoring Security Requirements 裁剪安全需求  
+### 6. Tailoring Security Requirements 裁剪安全需求  
 > Operations:
 - Iteration (迭代): allows a component to be used more than once with varying operations;
 - Assignment (赋值): allows the specification of parameters;
@@ -102,29 +139,5 @@ result: SARs是否都已满足，若满足，通过ST中所陈述的,TOE针对SF
 - 使用时机：dependencies should be satisfied when requirements based on components with dependencies are incorporated into PPs and STs. Dependencies should also be considered when constructing packages.  
 最后合并PPs和STs文档时，或者构建包时
 
-### 4. evaluatin-results 评估结果(线性的评估流程)
-### 5. 疑问
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### 7. evaluatin-results 评估结果(线性的评估流程)
+### 8. 疑问
