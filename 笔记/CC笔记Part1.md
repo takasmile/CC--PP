@@ -1,17 +1,20 @@
+
+[TOC] 
+
 ## <center>Common Criteria for Information Technology Security Evaluation
-### 1.缩写
-CC: Common Criteria 通用标准
-### 2.CC涉及的基本概念总览
+### 1.缩写及基本概念解释
+- CC: Common Criteria 通用标准
+- TOE: target of evaluation 评估目标
+- ST: security target 安全目标 (part1: Annex-A)
+- PP: protection profiles 保护框架 (part1: Annex-B)
+### 2.CC涉及的其他方面
 > 通过研究ST与PP的关系，得出信息服务的分类方案。
-1. TOE: target of evaluation 评估目标
-2. ST: security target 安全目标 (part1: Annex-A)
-3. PP: protection profiles 保护框架 (part1: Annex-B)
-4. CC受众：
+1. CC受众：
 - consumers: decide whether a TOE fulfils their security needs;
 - developers: preparing for and assisting in the evaluation of their TOEs and in identifying security requirements to be
 satisfied by those TOEs; 
 - evaluators: forming judgements about the conformance of TOEs to their security requirements. 
-5. 各概念之间的关系
+2. 各概念之间的关系
 - A PP is intended to be used as a “template” for an ST. That is: the PP describes a set of user needs, while an ST that conforms to that PP describes a TOE that satisfies those needs.(通过对比两者结构图看出)
 - Whereas an ST always describes a specific TOE (e.g. the MinuteGap v18.5 Firewall), a PP is intended to describe a TOE type (e.g. firewalls). 
 - The TOE has been evaluated to meet the ST.
